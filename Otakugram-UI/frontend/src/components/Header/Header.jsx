@@ -8,7 +8,7 @@ const navigation = [
 
 export default function Header() {
   return (
-    <nav className="bg-orange-400">
+    <nav className="header">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
@@ -27,7 +27,7 @@ export default function Header() {
                   to={item.to}
                   className={({ isActive }) =>
                     classNames(
-                      isActive ? 'bg-gray-900 text-white' : 'text-white hover:bg-gray-700 hover:text-white',
+                      isActive ? 'button' : 'hover:bg-gray-700',
                       'rounded-md px-3 py-2 text-sm font-medium'
                     )
                   }
@@ -41,13 +41,13 @@ export default function Header() {
           <div className="flex space-x-4">
             <Link
               to="/login"
-              className='bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium'
+              className='button rounded-md px-3 py-2 text-sm font-medium'
             >
               Login
             </Link>
             <Link
               to="/register"
-              className='bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium'
+              className='button rounded-md px-3 py-2 text-sm font-medium'
             >
               Sign Up
             </Link>
