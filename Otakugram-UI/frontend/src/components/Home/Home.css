@@ -1,0 +1,23 @@
+.hero {
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-image-div {
+    display: flex;
+    width: 500%;
+}
+
+.hero-slider {
+    top: 0;
+    position: absolute;
+    color: var(--text-color);
+}
+
+.hero-image {
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    z-index: -1;
+}
