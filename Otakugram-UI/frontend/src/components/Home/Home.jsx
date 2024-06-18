@@ -28,21 +28,23 @@ export default function Home() {
 
     return(
         <>
+
+        {/* Latest Anime Slider */}
         <div className="hero">
-            <div className="hero-image-div transition ease-out duration-400" 
+            <div className="hero-image-div transition ease-in-out duration-1000" 
             style={{
                 transform: `translateX(-${current*20}%)`
             }}>
                 {slides.map((slide, index) => (
-                    <img src={slide.url} alt="hero-background" className="hero-image" />
+                    <img key={slide.title} src={slide.url} alt="hero-background" className="hero-image" />
                 ))}
             </div>
             <div className="hero-slider h-full w-full justify-between items-center flex px-10 text-3xl">
                 <button onClick={previousSlide}> <FaChevronLeft /> </button>
                 <button onClick={nextSlide}> <FaChevronRight /> </button>
             </div>
-            
         </div>
+        
         </>
     )
 }

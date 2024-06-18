@@ -1,9 +1,20 @@
 import { Link, NavLink } from 'react-router-dom'
 import classNames from '../../utils/joinClassNames'
+import { Popover, PopoverButton, PopoverPanel, Transition } from '@headlessui/react'
+import { FaSearch } from "react-icons/fa";
+import { MdRecommend } from "react-icons/md";
+import { HiTrendingUp } from "react-icons/hi";
+
 
 const navigation = [
   { name: 'Home', to: '/' },
-  { name: 'Anime', to: '/anime' },
+  {
+    name: 'Anime', to: '#', items: [
+      { name: 'Anime Search', description: 'Find your Favourite Hen... I mean Anime', icon: FaSearch, to: '/anime' },
+      { name: 'Latest Anime', description: 'Take a look at the latest shows this season', icon: HiTrendingUp, to: '#' },
+      { name: 'Our Recommendations', description: 'Can never go wrong with them', icon: MdRecommend, to: '#' },
+    ]
+  },
 ]
 
 export default function Header() {
@@ -12,6 +23,8 @@ export default function Header() {
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
+
+            {/* Otakugram Logo */}
             <Link to="/" className='mr-2'>
               <img
                 className="h-8 w-auto"
@@ -20,21 +33,71 @@ export default function Header() {
               />
             </Link>
 
-            <div className="flex space-x-2">
+            {/* Navigation Items */}
+            <div className="flex space-x-2 items-center">
               {navigation.map((item) => (
-                <NavLink
-                  key={item.name}
-                  to={item.to}
-                  className={({ isActive }) =>
-                    classNames(
-                      isActive ? 'button' : 'hover:bg-gray-700',
-                      'rounded-md px-3 py-2 text-sm font-medium'
-                    )
+                <div key={item.name}>
+                  {item && !item.items ?
+                    // If No SubItems
+                    (<NavLink
+                      key={item.name}
+                      to={item.to}
+                      className={({ isActive }) =>
+                        classNames(
+                          isActive ? 'button' : 'hover:bg-gray-700',
+                          'rounded-md px-3 py-2 text-sm font-medium'
+                        )
+                      }
+                      aria-current={({ isActive }) => (isActive ? 'page' : undefined)}
+                    >
+                      {item.name}
+                    </NavLink>)
+                    :
+                    // If you have SubItems
+                    (<Popover className="relative">
+                      {({ open }) => (
+                        <>
+                          <PopoverButton
+                            className={classNames(
+                              'rounded-md px-3 py-2 text-sm font-medium',
+                              open ? 'button' : 'hover:bg-gray-700'
+                            )}
+                          >
+                            {item.name}
+                          </PopoverButton>
+                          <Transition
+                            enter="transition ease-out duration-200"
+                            enterFrom="opacity-0 translate-y-1"
+                            enterTo="opacity-100 translate-y-0"
+                            leave="transition ease-in duration-150"
+                            leaveFrom="opacity-100 translate-y-0"
+                            leaveTo="opacity-0 translate-y-1"
+                          >
+                            <PopoverPanel
+                              className="absolute z-10 mt-3 w-96 divide-y divide-white/5 rounded-md bg-gray-950 text-sm"
+                            >
+                              <div>
+                                {item.items.map((subItem) => (
+                                  <NavLink
+                                    key={subItem.name}
+                                    to={subItem.to}
+                                    className="flex items-center py-2 px-3 transition hover:bg-orange-500 "
+                                  >
+                                    <subItem.icon size={20} className="text-white mr-5" />
+                                    <div>
+                                      <p className="font-semibold text-white">{subItem.name}</p>
+                                      <p className="text-white/50">{subItem.description}</p>
+                                    </div>
+                                  </NavLink>
+                                ))}
+                              </div>
+                            </PopoverPanel>
+                          </Transition>
+                        </>
+                      )}
+                    </Popover>)
                   }
-                  aria-current={({ isActive }) => (isActive ? 'page' : undefined)}
-                >
-                  {item.name}
-                </NavLink>
+                </div>
               ))}
             </div>
           </div>
