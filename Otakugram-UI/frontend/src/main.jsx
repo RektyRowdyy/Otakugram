@@ -6,12 +6,17 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Login from './components/Login/Login.jsx'
 import Register from './components/Register/Register.jsx'
 import Anime from './components/Anime/Anime.jsx'
+import Home from './components/Home/Home.jsx'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
     children: [
+      {
+        path: "/",
+        element: <Home />
+      },
       {
         path: 'anime',
         element: <Anime />

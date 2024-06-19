@@ -8,6 +8,10 @@
     --button-bg: #111827;
 }
 
+html {
+    overflow-x: hidden !important;
+}
+
 .header {
     background-color: var(--primary-color);
     color: var(--text-color);
