@@ -98,10 +98,10 @@ export default function CardSlider() {
                     <h1 className="z-10 absolute text-white text-3xl ml-3 top-[-50px] flex cardHeader">
                         New On <img className="h-9 w-auto ml-2 -mr-0.5" src="Otakugram Logo.png" alt="Otakugram Logo" />takugram
                     </h1>
-                    <Slider {...settings} className="absolute">
+                    <Slider {...settings} className="absolute newOtaku">
                         {data.map((d) => (
                             <div key={d.animeName} className="text-white h-[400px] flex justify-center">
-                                <img src={d.animePoster} alt={d.animeName} className="h-[400px] w-auto" />
+                                <img src={d.animePoster} alt={d.animeName} className="h-[400px] w-auto object-cover" />
                             </div>
                         ))}
                     </Slider >

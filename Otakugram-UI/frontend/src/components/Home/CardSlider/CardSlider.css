@@ -5,11 +5,12 @@
     width: auto;
 }
 
-.slick-slide>div {
-    margin: 0 10px;
+.newOtaku .slick-slide>div {
+    margin: 0 10px !important;
 }
 
 /* Custom CSS for slick dots */
+
 .custom-slick-dots li button:before {
     color: var(--text-color) !important;
     font-size: 8px !important;
