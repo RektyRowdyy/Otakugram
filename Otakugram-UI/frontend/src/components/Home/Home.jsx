@@ -1,6 +1,7 @@
 import { FaChevronRight , FaChevronLeft  } from "react-icons/fa";
 import "./Home.css"
 import { useState } from "react";
+import CardSlider from "./CardSlider/CardSlider";
 
 
 export default function Home() {
@@ -44,6 +45,9 @@ export default function Home() {
                 <button onClick={nextSlide}> <FaChevronRight /> </button>
             </div>
         </div>
+        
+        {/* New On Otakugram */}
+        <CardSlider />
         
         </>
     )

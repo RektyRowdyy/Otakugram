@@ -1,0 +1,21 @@
+.cardHeader {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: bold;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+    width: auto;
+}
+
+.slick-slide>div {
+    margin: 0 10px;
+}
+
+/* Custom CSS for slick dots */
+.custom-slick-dots li button:before {
+    color: var(--text-color) !important;
+    font-size: 8px !important;
+}
+
+.custom-slick-dots li.slick-active button:before {
+    color: var(--primary-color) !important;
+    font-size: 12px !important;
+}
