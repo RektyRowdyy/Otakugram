@@ -1,0 +1,27 @@
+.hero-image {
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.hero .slick-slide > div {
+    margin: 0px 0px !important;
+}
+
+/* Custom CSS for slick dots */
+
+.hero-custom-slick-dots {
+    bottom: 15% !important;
+    left: 40% !important;
+    font-size: 6vh;
+}
+
+.hero-custom-slick-dots li {
+    color: var(--text-color) !important;
+    margin-right: 30px !important;
+}
+
+.hero-custom-slick-dots .slick-active {
+    color: var(--primary-color) !important;
+}
