@@ -1,21 +1,7 @@
 import { Link, NavLink } from 'react-router-dom'
 import classNames from '../../utils/joinClassNames'
 import { Popover, PopoverButton, PopoverPanel, Transition } from '@headlessui/react'
-import { FaSearch } from "react-icons/fa";
-import { MdRecommend } from "react-icons/md";
-import { HiTrendingUp } from "react-icons/hi";
-
-
-const navigation = [
-  { name: 'Home', to: '/' },
-  {
-    name: 'Anime', to: '#', items: [
-      { name: 'Anime Search', description: 'Find your Favourite Hen... I mean Anime', icon: FaSearch, to: '/anime' },
-      { name: 'Latest Anime', description: 'Take a look at the latest shows this season', icon: HiTrendingUp, to: '#' },
-      { name: 'Our Recommendations', description: 'Can never go wrong with them', icon: MdRecommend, to: '#' },
-    ]
-  },
-]
+import { headerNavigation } from '../../constants.jsx';
 
 export default function Header() {
   return (
@@ -35,7 +21,7 @@ export default function Header() {
 
             {/* Navigation Items */}
             <div className="flex space-x-2 items-center">
-              {navigation.map((item) => (
+              {headerNavigation.map((item) => (
                 <div key={item.name}>
                   {item && !item.items ?
                     // If No SubItems
