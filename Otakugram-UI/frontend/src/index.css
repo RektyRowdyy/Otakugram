@@ -12,6 +12,10 @@ html {
     overflow-x: hidden !important;
 }
 
+body {
+    background-color: #14161b;
+}
+
 .header {
     background-color: var(--primary-color);
     color: var(--text-color);
